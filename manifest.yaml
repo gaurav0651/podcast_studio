@@ -1,6 +1,6 @@
 version: 0.0.1
 type: plugin
-author: pulpdata_pty_ltd
+author: gaurav0651
 name: podcast_studio
 label:
   en_US: Podcast Studio
