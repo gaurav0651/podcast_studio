@@ -1,0 +1,35 @@
+version: 0.0.1
+type: plugin
+author: pulpdata_pty_ltd
+name: podcast_studio
+label:
+  en_US: Podcast Studio
+  ja_JP: ポッドキャストスタジオ
+  zh_Hans: 播客工作室
+  pt_BR: Estúdio de Podcast
+description:
+  en_US: Generate podcast audio using Text-to-Speech services
+  ja_JP: テキスト読み上げサービスを使用してポッドキャストオーディオを生成
+  zh_Hans: 使用文字转语音服务生成播客音频
+  pt_BR: Gere áudio de podcast usando serviços de texto para fala
+icon: icon.svg
+icon_dark: icon-dark.svg
+resource:
+  memory: 268435456
+  permission: {}
+plugins:
+  tools:
+    - provider/podcast_studio.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: null
+created_at: 2025-08-14T01:56:36.598533+10:00
+privacy: PRIVACY.md
+verified: false

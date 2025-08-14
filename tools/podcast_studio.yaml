@@ -1,0 +1,234 @@
+identity:
+  name: "podcast_studio"
+  author: "pulpdata_pty_ltd"
+  label:
+    en_US: "Podcast Audio Generator"
+    zh_Hans: "播客音频生成器"
+    pt_BR: "Gerador de Áudio de Podcast"
+description:
+  human:
+    en_US: "Generate a podcast audio file from a script with two alternating voices using OpenAI or ElevenLabs TTS service."
+    zh_Hans: "使用 OpenAI 或 ElevenLabs TTS 服务，从包含两个交替声音的脚本生成播客音频文件。"
+    pt_BR: "Gere um arquivo de áudio de podcast a partir de um roteiro com duas vozes alternadas usando o serviço TTS OpenAI ou ElevenLabs."
+  llm: "This tool converts a prepared podcast script into an audio file using OpenAI or ElevenLabs Text-to-Speech service, with two specified voices for alternating hosts."
+parameters:
+  - name: script
+    type: string
+    required: true
+    label:
+      en_US: Podcast Script
+      zh_Hans: 播客脚本
+      pt_BR: Roteiro do Podcast
+    human_description:
+      en_US: A string containing alternating lines for two hosts, separated by newline characters.
+      zh_Hans: 包含两位主持人交替台词的字符串，每行用换行符分隔。
+      pt_BR: Uma string contendo linhas alternadas para dois apresentadores, separadas por caracteres de nova linha.
+    llm_description: A string representing the script, with alternating lines for two hosts separated by newline characters.
+    form: llm
+  - name: host1_voice
+    type: select
+    required: true
+    label:
+      en_US: Host 1 Voice
+      zh_Hans: 主持人1 音色
+      pt_BR: Voz do Apresentador 1
+    human_description:
+      en_US: The voice for the first host.
+      zh_Hans: 第一位主持人的音色。
+      pt_BR: A voz para o primeiro apresentador.
+    llm_description: The voice identifier for the first host's voice.
+    options:
+      # OpenAI Voices
+      - label:
+          en_US: "Alloy (OpenAI - Neutral)"
+          zh_Hans: "Alloy (OpenAI - 中性)"
+          pt_BR: "Alloy (OpenAI - Neutro)"
+        value: openai:alloy
+      - label:
+          en_US: "Echo (OpenAI - Male)"
+          zh_Hans: "Echo (OpenAI - 男性)"
+          pt_BR: "Echo (OpenAI - Masculino)"
+        value: openai:echo
+      - label:
+          en_US: "Fable (OpenAI - British Male)"
+          zh_Hans: "Fable (OpenAI - 英式男性)"
+          pt_BR: "Fable (OpenAI - Masculino Britânico)"
+        value: openai:fable
+      - label:
+          en_US: "Onyx (OpenAI - Deep Male)"
+          zh_Hans: "Onyx (OpenAI - 深沉男性)"
+          pt_BR: "Onyx (OpenAI - Masculino Profundo)"
+        value: openai:onyx
+      - label:
+          en_US: "Nova (OpenAI - Female)"
+          zh_Hans: "Nova (OpenAI - 女性)"
+          pt_BR: "Nova (OpenAI - Feminino)"
+        value: openai:nova
+      - label:
+          en_US: "Shimmer (OpenAI - Soft Female)"
+          zh_Hans: "Shimmer (OpenAI - 柔和女性)"
+          pt_BR: "Shimmer (OpenAI - Feminino Suave)"
+        value: openai:shimmer
+      # ElevenLabs Voices with Australian Accent
+      - label:
+          en_US: "Stuart (ElevenLabs - Australian Male, Energetic)"
+          zh_Hans: "Stuart (ElevenLabs - 澳洲男性，活力)"
+          pt_BR: "Stuart (ElevenLabs - Masculino Australiano, Energético)"
+        value: elevenlabs:HDA9tsk27wYi3uq0fPcK
+      - label:
+          en_US: "Lee (ElevenLabs - Australian Male, Middle-aged)"
+          zh_Hans: "Lee (ElevenLabs - 澳洲中年男性)"
+          pt_BR: "Lee (ElevenLabs - Masculino Australiano, Meia-idade)"
+        value: elevenlabs:nPczCjzI2devNBz1zQrb
+      - label:
+          en_US: "Amelia (ElevenLabs - Australian Female, Young)"
+          zh_Hans: "Amelia (ElevenLabs - 澳洲年轻女性)"
+          pt_BR: "Amelia (ElevenLabs - Feminino Australiano, Jovem)"
+        value: elevenlabs:21m00Tcm4TlvDq8ikWAM
+      - label:
+          en_US: "Maya (ElevenLabs - Australian Female, Young)"
+          zh_Hans: "Maya (ElevenLabs - 澳洲年轻女性)"
+          pt_BR: "Maya (ElevenLabs - Feminino Australiano, Jovem)"
+        value: elevenlabs:EXAVITQu4vr4xnSDxMaL
+      - label:
+          en_US: "Sophia (ElevenLabs - Australian Female, Bright)"
+          zh_Hans: "Sophia (ElevenLabs - 澳洲女性，明亮)"
+          pt_BR: "Sophia (ElevenLabs - Feminino Australiano, Brilhante)"
+        value: elevenlabs:LtPsVjX1k0Kl4StEMZPK
+      # Additional ElevenLabs Premium Voices
+      - label:
+          en_US: "Rachel (ElevenLabs - American Female, Calm)"
+          zh_Hans: "Rachel (ElevenLabs - 美式女性，沉稳)"
+          pt_BR: "Rachel (ElevenLabs - Feminino Americano, Calma)"
+        value: elevenlabs:21m00Tcm4TlvDq8ikWAM
+      - label:
+          en_US: "Drew (ElevenLabs - American Male, Well-rounded)"
+          zh_Hans: "Drew (ElevenLabs - 美式男性，全面)"
+          pt_BR: "Drew (ElevenLabs - Masculino Americano, Equilibrado)"
+        value: elevenlabs:29vD33N1CtxCmqQRPOHJ
+      - label:
+          en_US: "Clyde (ElevenLabs - American Male, War veteran)"
+          zh_Hans: "Clyde (ElevenLabs - 美式男性，退伍军人)"
+          pt_BR: "Clyde (ElevenLabs - Masculino Americano, Veterano)"
+        value: elevenlabs:2EiwWnXFnvU5JabPnv8n
+      - label:
+          en_US: "Paul (ElevenLabs - American Male, Ground reporter)"
+          zh_Hans: "Paul (ElevenLabs - 美式男性，地面记者)"
+          pt_BR: "Paul (ElevenLabs - Masculino Americano, Repórter)"
+        value: elevenlabs:5Q0t7uMcjvnagumLfvZi
+      - label:
+          en_US: "Domi (ElevenLabs - American Female, Strong)"
+          zh_Hans: "Domi (ElevenLabs - 美式女性，强势)"
+          pt_BR: "Domi (ElevenLabs - Feminino Americano, Forte)"
+        value: elevenlabs:AZnzlk1XvdvUeBnXmlld
+      - label:
+          en_US: "Dave (ElevenLabs - British Male, Essex)"
+          zh_Hans: "Dave (ElevenLabs - 英式男性，埃塞克斯)"
+          pt_BR: "Dave (ElevenLabs - Masculino Britânico, Essex)"
+        value: elevenlabs:CYw3kZ02Hs0563khs1Fj
+    form: form
+  - name: host2_voice
+    type: select
+    required: true
+    label:
+      en_US: Host 2 Voice
+      zh_Hans: 主持人2 音色
+      pt_BR: Voz do Apresentador 2
+    human_description:
+      en_US: The voice for the second host.
+      zh_Hans: 第二位主持人的音色。
+      pt_BR: A voz para o segundo apresentador.
+    llm_description: The voice identifier for the second host's voice.
+    options:
+      # OpenAI Voices
+      - label:
+          en_US: "Alloy (OpenAI - Neutral)"
+          zh_Hans: "Alloy (OpenAI - 中性)"
+          pt_BR: "Alloy (OpenAI - Neutro)"
+        value: openai:alloy
+      - label:
+          en_US: "Echo (OpenAI - Male)"
+          zh_Hans: "Echo (OpenAI - 男性)"
+          pt_BR: "Echo (OpenAI - Masculino)"
+        value: openai:echo
+      - label:
+          en_US: "Fable (OpenAI - British Male)"
+          zh_Hans: "Fable (OpenAI - 英式男性)"
+          pt_BR: "Fable (OpenAI - Masculino Britânico)"
+        value: openai:fable
+      - label:
+          en_US: "Onyx (OpenAI - Deep Male)"
+          zh_Hans: "Onyx (OpenAI - 深沉男性)"
+          pt_BR: "Onyx (OpenAI - Masculino Profundo)"
+        value: openai:onyx
+      - label:
+          en_US: "Nova (OpenAI - Female)"
+          zh_Hans: "Nova (OpenAI - 女性)"
+          pt_BR: "Nova (OpenAI - Feminino)"
+        value: openai:nova
+      - label:
+          en_US: "Shimmer (OpenAI - Soft Female)"
+          zh_Hans: "Shimmer (OpenAI - 柔和女性)"
+          pt_BR: "Shimmer (OpenAI - Feminino Suave)"
+        value: openai:shimmer
+      # ElevenLabs Voices with Australian Accent
+      - label:
+          en_US: "Stuart (ElevenLabs - Australian Male, Energetic)"
+          zh_Hans: "Stuart (ElevenLabs - 澳洲男性，活力)"
+          pt_BR: "Stuart (ElevenLabs - Masculino Australiano, Energético)"
+        value: elevenlabs:HDA9tsk27wYi3uq0fPcK
+      - label:
+          en_US: "Lee (ElevenLabs - Australian Male, Middle-aged)"
+          zh_Hans: "Lee (ElevenLabs - 澳洲中年男性)"
+          pt_BR: "Lee (ElevenLabs - Masculino Australiano, Meia-idade)"
+        value: elevenlabs:nPczCjzI2devNBz1zQrb
+      - label:
+          en_US: "Amelia (ElevenLabs - Australian Female, Young)"
+          zh_Hans: "Amelia (ElevenLabs - 澳洲年轻女性)"
+          pt_BR: "Amelia (ElevenLabs - Feminino Australiano, Jovem)"
+        value: elevenlabs:21m00Tcm4TlvDq8ikWAM
+      - label:
+          en_US: "Maya (ElevenLabs - Australian Female, Young)"
+          zh_Hans: "Maya (ElevenLabs - 澳洲年轻女性)"
+          pt_BR: "Maya (ElevenLabs - Feminino Australiano, Jovem)"
+        value: elevenlabs:EXAVITQu4vr4xnSDxMaL
+      - label:
+          en_US: "Sophia (ElevenLabs - Australian Female, Bright)"
+          zh_Hans: "Sophia (ElevenLabs - 澳洲女性，明亮)"
+          pt_BR: "Sophia (ElevenLabs - Feminino Australiano, Brilhante)"
+        value: elevenlabs:LtPsVjX1k0Kl4StEMZPK
+      # Additional ElevenLabs Premium Voices
+      - label:
+          en_US: "Rachel (ElevenLabs - American Female, Calm)"
+          zh_Hans: "Rachel (ElevenLabs - 美式女性，沉稳)"
+          pt_BR: "Rachel (ElevenLabs - Feminino Americano, Calma)"
+        value: elevenlabs:21m00Tcm4TlvDq8ikWAM
+      - label:
+          en_US: "Drew (ElevenLabs - American Male, Well-rounded)"
+          zh_Hans: "Drew (ElevenLabs - 美式男性，全面)"
+          pt_BR: "Drew (ElevenLabs - Masculino Americano, Equilibrado)"
+        value: elevenlabs:29vD33N1CtxCmqQRPOHJ
+      - label:
+          en_US: "Clyde (ElevenLabs - American Male, War veteran)"
+          zh_Hans: "Clyde (ElevenLabs - 美式男性，退伍军人)"
+          pt_BR: "Clyde (ElevenLabs - Masculino Americano, Veterano)"
+        value: elevenlabs:2EiwWnXFnvU5JabPnv8n
+      - label:
+          en_US: "Paul (ElevenLabs - American Male, Ground reporter)"
+          zh_Hans: "Paul (ElevenLabs - 美式男性，地面记者)"
+          pt_BR: "Paul (ElevenLabs - Masculino Americano, Repórter)"
+        value: elevenlabs:5Q0t7uMcjvnagumLfvZi
+      - label:
+          en_US: "Domi (ElevenLabs - American Female, Strong)"
+          zh_Hans: "Domi (ElevenLabs - 美式女性，强势)"
+          pt_BR: "Domi (ElevenLabs - Feminino Americano, Forte)"
+        value: elevenlabs:AZnzlk1XvdvUeBnXmlld
+      - label:
+          en_US: "Dave (ElevenLabs - British Male, Essex)"
+          zh_Hans: "Dave (ElevenLabs - 英式男性，埃塞克斯)"
+          pt_BR: "Dave (ElevenLabs - Masculino Britânico, Essex)"
+        value: elevenlabs:CYw3kZ02Hs0563khs1Fj
+    form: form
+extra:
+  python:
+    source: tools/podcast_studio.py
