@@ -199,7 +199,7 @@ The complete source code, documentation, and examples are available in the GitHu
 
 ## License
 
-This plugin is released under the MIT License. See the [LICENSE](https://github.com/gaurav0651/podcast_studio/blob/main/LICENSE) file in the repository for full license details.
+This plugin is released under the MIT License. 
 
 ---
 
