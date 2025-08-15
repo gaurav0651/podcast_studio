@@ -1,4 +1,4 @@
-dify_plugin>=0.2.0,<0.3.0
+dify_plugin>=0.3.0,<0.5.0
 openai>=1.0.0
 yarl>=1.9.0
 pydub>=0.25.0
