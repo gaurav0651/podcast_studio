@@ -189,14 +189,14 @@ class PodcastStudioTool(Tool):
                 if i < len(audio_segments) - 1 and silence:
                     combined_audio += silence
 
-        # Export the combined audio to a WAV file in memory
+        # Export the combined audio to an MP3 file in memory instead of WAV
         buffer = io.BytesIO()
-        combined_audio.export(buffer, format="wav")
-        wav_bytes = buffer.getvalue()
+        combined_audio.export(buffer, format="mp3", bitrate="128k")  # 128k bitrate for good quality/size balance
+        mp3_bytes = buffer.getvalue()
 
         # Create messages with the combined audio
         yield self.create_text_message("Audio generated successfully")
         yield self.create_blob_message(
-            blob=wav_bytes,
-            meta={"mime_type": "audio/x-wav"},
+            blob=mp3_bytes,
+            meta={"mime_type": "audio/mpeg"},
         )
